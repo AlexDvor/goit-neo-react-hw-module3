@@ -35,7 +35,7 @@ const ContactForm = ({ handleAdd }) => {
 								name='name'
 								type='text'
 								id='name'
-								placeholder='Pedro'
+								placeholder='Example: Pedro Sanchez'
 							/>
 							<ErrorMessage name='name' component='p' className={s.error} />
 						</div>
@@ -45,7 +45,7 @@ const ContactForm = ({ handleAdd }) => {
 								name='number'
 								type='text'
 								id='number'
-								placeholder='631-26-86'
+								placeholder='Example: 631-26-86'
 							/>
 							<ErrorMessage
 								name='number'
