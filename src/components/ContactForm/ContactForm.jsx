@@ -1,16 +1,21 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { nanoid } from 'nanoid';
 
 import s from './ContactForm.module.css';
 
 const initialFieldsValue = {
 	name: '',
-	phone: '',
+	number: '',
 };
 
-const ContactForm = () => {
+const ContactForm = ({ handleAdd }) => {
 	const handleSubmit = (value, action) => {
-		console.log(value);
+		const newItem = { ...value, id: nanoid() };
+
+		handleAdd(newItem);
+		action.resetForm();
 	};
+
 	return (
 		<>
 			<Formik initialValues={initialFieldsValue} onSubmit={handleSubmit}>
@@ -21,8 +26,8 @@ const ContactForm = () => {
 						{/* <ErrorMessage name='name' component='div' /> */}
 					</div>
 					<div className={s.fieldBox}>
-						<label htmlFor='phone'>Number</label>
-						<Field name='phone' type='phone' id='phone' />
+						<label htmlFor='number'>Number</label>
+						<Field name='number' type='phone' id='number' />
 						{/* <ErrorMessage name='phone' component='div' /> */}
 					</div>
 

@@ -1,7 +1,7 @@
 import s from './Contact.module.css';
 
-const Contact = ({ item }) => {
-	const { name, number } = item;
+const Contact = ({ item, handlerRemove }) => {
+	const { id, name, number } = item;
 	return (
 		<li className={s.item}>
 			<div>
@@ -9,7 +9,7 @@ const Contact = ({ item }) => {
 				<p>{number}</p>
 			</div>
 			<div>
-				<button>Delete</button>
+				<button onClick={() => handlerRemove(id)}>Delete</button>
 			</div>
 		</li>
 	);

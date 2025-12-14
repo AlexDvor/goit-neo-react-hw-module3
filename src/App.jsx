@@ -14,18 +14,33 @@ const dataUsers = [
 
 function App() {
 	const [contacts, setContacts] = useState(dataUsers);
-	const [searchField, setSearchField] = useState('');
+	const [filter, setFilter] = useState('');
 
 	const handleSearchChange = e => {
-		setSearchField(e.target.value);
+		setFilter(e.target.value);
 	};
+
+	const handleCreateUser = newCard => {
+		setContacts(prev => [...prev, newCard]);
+	};
+
+	const handleRemoveUser = id => {
+		// Check id
+		setContacts(prev => {
+			return prev.filter(item => item.id !== id);
+		});
+	};
+
+	const visibleItems = contacts.filter(item =>
+		item.name.toLowerCase().includes(filter.toLowerCase())
+	);
 
 	return (
 		<div className='container'>
 			<h1>Phonebook</h1>
-			<ContactForm />
-			<SearchBox searchValue={searchField} handleChange={handleSearchChange} />
-			<ContactList contacts={contacts} />
+			<ContactForm handleAdd={handleCreateUser} />
+			<SearchBox searchValue={filter} handleChange={handleSearchChange} />
+			<ContactList contacts={visibleItems} handlerRemove={handleRemoveUser} />
 		</div>
 	);
 }
