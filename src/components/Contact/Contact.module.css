@@ -7,3 +7,14 @@
 	border-radius: 5%;
 	padding: 10px 15px;
 }
+
+.userInfo {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	gap: 6px;
+}
+
+.userInfo:first-child {
+	margin-bottom: 7px;
+}
