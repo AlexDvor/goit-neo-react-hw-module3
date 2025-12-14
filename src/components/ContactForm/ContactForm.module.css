@@ -1,0 +1,14 @@
+.formWrap {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	border: 2px solid black;
+	padding: 10px;
+	border-radius: 5%;
+}
+
+.fieldBox {
+	display: flex;
+	flex-direction: column;
+	/* gap: 10px; */
+}
