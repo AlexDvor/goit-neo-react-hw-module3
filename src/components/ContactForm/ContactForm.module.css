@@ -27,3 +27,8 @@
 .fieldBox input {
 	padding: 5px;
 }
+
+.error {
+	color: rgb(201, 23, 23);
+	margin: 0px;
+}
